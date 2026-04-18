@@ -134,3 +134,42 @@ Repeat until the error is smaller than the tolerance or N iterations are reached
 Report the final estimate p as the approximation of the root.
 
 **END**
+
+# Pseudocode — Chapter 2: Linear Systems
+**DigitalNumbers Project · EAFIT University**
+Author: Jerónimo Mesa Alzate · April 2026
+
+---
+
+## Method 1 — Naive Gaussian Elimination
+
+**Purpose:** To solve de Equation Ax = b by reducing the coeficient matrix into it's upper triangular form using simple row equations in the augmented matrix, then, back substitution is used to solve the variables starting from the last row to find the values of the x components
+
+**Inputs:**
+- Matrix A (nxn)
+- Vector b (nx1)
+  
+**Output:**
+- Solution vector x
+- Intermediate matrices of the process
+
+**BEGIN**
+Check input dimensions: If A is not square (nxn) → Stop, and if b is not compatible with b (nx1) → Stop
+Check if the det(A) = 0 if it is → Stop 
+Chack if the number in the position A(1,1) = 0, if it is → Stop
+
+Form thw augmented martix Aug = [A|b], then start the process of elimination:
+For k = 1 to n-1:
+  If Aug[k,k] = 0:
+    Stop: zero pivot encountered
+  For i = k+1 to n:
+    m_i = Aug[i,k] / Aug[k,k]
+    For j = k to n+1:
+      Aug[i,j] = Aug[i,j] - m_i * Aug[k,j]
+      
+Then we apply back substitution:
+x[n] = Aug[n,n+1] / Aug[n,n]
+For i = n-1 down to 1:
+  x[i] = (Aug[i,n+1] - Σ Aug[i,j]*x[j]) / Aug[i,i]
+
+And finally the outputs are printed
