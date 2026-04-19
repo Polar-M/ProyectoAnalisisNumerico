@@ -28,7 +28,7 @@ def gaussian_elimination_TP(A, b, return_stages=True):
         raise ValueError("Vector b size must match A")
 
     # --- Determinant check ---
-    if np.linalg.det(A) = 0:
+    if np.linalg.det(A) == 0:
         raise ValueError("Matrix A is not invertible")
         
     # --- Build augmented matrix ---
@@ -69,7 +69,7 @@ def gaussian_elimination_TP(A, b, return_stages=True):
             stages.append(Aug.copy())
 
     # --- Check last pivot ---
-    if Aug[n - 1, n - 1] = 0:
+    if Aug[n - 1, n - 1] == 0:
         raise ValueError("0 pivot encountered at last step")
 
     # --- Back substitution ---
