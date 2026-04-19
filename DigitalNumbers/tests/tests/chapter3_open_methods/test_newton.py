@@ -1,7 +1,7 @@
 import math
 
 
-def newton_method(f, df, x0, tol=1e-8, max_iter=100):
+def newton_method(f, df, x0, tol=1e-7, max_iter=100):
     """
     Newton-Raphson Method for solving f(x) = 0
 
