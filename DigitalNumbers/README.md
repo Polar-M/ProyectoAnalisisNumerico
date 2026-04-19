@@ -50,7 +50,7 @@ DigitalNumbers/
 │   │   ├── gaussian_elimination.py   ← example
 │   │   └── ...
 │   │
-│   └── chapter3_interpolation/       ← Chapter 3 (add yours here)
+│   └── chapter3_open_methods/       ← Chapter 3 (add yours here)
 │       ├── __init__.py
 │       └── ...
 │
