@@ -1,3 +1,5 @@
+import numpy as np
+
 def gaussian_elimination_PP(A, b, return_stages=True):
     """
     Solves the linear system Ax = b using Gaussian elimination with partial pivoting.
