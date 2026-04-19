@@ -16,6 +16,9 @@ jobs:
       - name: Install dependencies
         run: pip install numpy
 
-      - name: Ver estructura
+      - name: Run tests
         run: |
-          find . -name "*.py" | head -30
+          cd DigitalNumbers
+          python tests/chapter2_linear_systems/test_naive_gaussian_elimination.py
+          python tests/chapter2_linear_systems/test_gaussian_elimination_PP.py
+          python tests/chapter2_linear_systems/test_gaussian_elimination_TP.py
