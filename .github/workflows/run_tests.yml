@@ -14,10 +14,11 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install numpy
 
       - name: Run tests
         run: |
+          python tests/chapter1_single_variable/test_bisection.py
           python tests/chapter2_linear_systems/test_naive_gaussian_elimination.py
           python tests/chapter2_linear_systems/test_gaussian_elimination_PP.py
           python tests/chapter2_linear_systems/test_gaussian_elimination_TP.py
