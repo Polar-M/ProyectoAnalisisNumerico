@@ -153,7 +153,8 @@ Author: Jerónimo Mesa Alzate · April 2026
 - Solution vector x
 - Intermediate matrices of the process
 
-**BEGIN**
+**BEGIN**  
+
 Check input dimensions: If A is not square (nxn) → Stop, and if b is not compatible with b (nx1) → Stop  
 Check if the det(A) = 0 if it is → Stop.  
 Chack if the number in the position A(1,1) = 0, if it is → Stop.  
@@ -174,4 +175,51 @@ Then we apply back substitution:
 > For i = n-1 down to 1:  
 >   x[i] = (Aug[i,n+1] - Σ Aug[i,j]*x[j]) / Aug[i,i]  
 
-And finally the outputs are printed
+And finally the outputs are printed  
+
+
+## Method 2 — Gaussian Elimination whit Partial Pivoting (PP)  
+**Purpose** Similar to naive gaussian elimination, this method utilises row changes to face the problem that the firts number could be too small compared to the other numbers leading to a not exact answer, also solves the problem of a number in the position [1,1] being a 0  
+
+**Input:**   
+- Matrix A (n × n)
+- vector b (n × 1)
+  
+**Output:**  
+- Solution vector x  
+
+Check input dimensions:   
+  If A is not square → Stop  
+  If b size is not compatible → Stop  
+  If det(A) = 0 → Stop.   
+  
+Form augmented matrix Aug = [A | b]
+
+> For k = 1 to n-1:  
+> 
+>  Find pivot row:  
+>  p = index of row i (from k to n) that maximizes |Aug[i,k]|  
+
+> If the number on the diag is 0 then  
+>   Stop  
+
+> If p ≠ k:  
+>   Swap rows k and p  
+
+> For i = k+1 to n:  
+>   m = Aug[i,k] / Aug[k,k]  
+> For j = k to n+1:  
+>   Aug[i,j] = Aug[i,j] - m * Aug[k,j]  
+  
+> If the last pivot is 0 then  
+>   Stop
+
+Then we apply back substitution:  
+
+> x[n] = Aug[n,n+1] / Aug[n,n]  
+> For i = n-1 down to 1:  
+>   x[i] = (Aug[i,n+1] - Σ Aug[i,j]*x[j]) / Aug[i,i]  
+
+And finally the outputs are printed  
+
+6. Return x
