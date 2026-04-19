@@ -269,4 +269,83 @@ Create vector x_final such that:
 > x_final[mark[i]] = x[i]
 
 return x_final
+# Pseudocode — Chapter 3: Open Methods
+**DigitalNumbers Project · EAFIT University**
+Author: *[Juan Guillermo Isaza]* · April 2026
 
+---
+
+## Method 1 — Newton-Raphson
+
+**Purpose:** Starting from an initial guess, this method uses the tangent line of the function to generate better approximations of the root at each step. It usually converges very fast when the initial guess is close to the actual root.
+
+**Inputs:**
+- f — a function
+- df — derivative of the function
+- x0 — initial approximation
+- tol — acceptable error
+- N — maximum number of iterations
+
+**Output:**
+- Approximation of the root
+
+---
+
+**BEGIN**
+
+Set the current approximation to x0 and evaluate f and df at that point.  
+Set the initial error to a large number so the loop starts.
+
+Repeat until the error is smaller than the tolerance or N iterations are reached:
+
+> Check if the derivative at the current point is zero.  
+> If it is, stop — the method cannot proceed due to division by zero.
+>
+> Compute the next approximation using the tangent line formula:  
+> x_next = x_current − f(x_current) / df(x_current)
+>
+> Calculate the error as the absolute difference between the new and old approximation.  
+>
+> Update the current approximation with the new value.  
+> Evaluate f and df at the new point.  
+> Increase the iteration counter by one.
+
+Report the final approximation as the root.
+
+**END**
+
+---
+
+## Method 2 — Fixed Point Iteration
+
+**Purpose:** Transform the equation into the form x = g(x) and generate a sequence of approximations by repeatedly evaluating the function. The success of the method depends strongly on the choice of g(x).
+
+**Inputs:**
+- g — function written as x = g(x)
+- x0 — initial approximation
+- tol — acceptable error
+- N — maximum number of iterations
+
+**Output:**
+- Approximation of the root
+
+---
+
+**BEGIN**
+
+Set the current approximation to x0.  
+Set the initial error to a large number so the loop starts.
+
+Repeat until the error is smaller than the tolerance or N iterations are reached:
+
+> Compute the next approximation by evaluating the function:  
+> x_next = g(x_current)
+>
+> Calculate the error as the absolute difference between the new and old approximation.  
+>
+> Update the current approximation with the new value.  
+> Increase the iteration counter by one.
+
+Report the final approximation as the root.
+
+**END**
