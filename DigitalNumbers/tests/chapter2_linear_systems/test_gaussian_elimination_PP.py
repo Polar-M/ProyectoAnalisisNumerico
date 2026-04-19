@@ -43,4 +43,27 @@ def print_results(label: str, x, stages):
 
     print()
 
+# ──────────────────────────────────────────────
+# Test 1 
+# A = 
+#   [2, -1, 0, 3]
+#   [1, 0.5, 3, 8]
+#   [0, 13, -2, 11]
+#   [14, 5, -2, 3]
+# 
+# b = [1, 1, 1, 1] 
+# Expected results:
+# x = [0.038495, -0.180227, -0.309711, 0.247594]
+# ──────────────────────────────────────────────
+A = np.array([
+    [2, -1, 0, 3],
+    [1, 0.5, 3, 8],
+    [0, 13, -2, 11],
+    [14, 5, -2, 3]
+], dtype=float)
 
+b = np.array([1, 1, 1, 1], dtype=float)
+
+x, stages = gaussian_elimination_PP(A, b, return_stages=True)
+
+print_results("Test 1: 4x4 System (Partial Pivoting)", x, stages)
