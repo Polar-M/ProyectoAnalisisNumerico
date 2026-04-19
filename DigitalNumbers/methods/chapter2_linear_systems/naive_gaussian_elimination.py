@@ -28,12 +28,12 @@ def naive_gaussian_elimination(A, b, return_stages=True):
         raise ValueError("Vector b size must match A")
 
     # --- Determinant check ---
-    if np.linalg.det(A) = 0:
+    if np.linalg.det(A) == 0:
         raise ValueError("Matrix A is not invertible")
 
     # --- First pivot check ---
-    if A[0, 0] = 0:
-        raise ValueError("Zero pivot at position (1,1). Method fails without pivoting.")
+    if A[0, 0] == 0:
+        raise ValueError("0 pivot at position (1,1). Method fails without pivoting.")
 
     # --- Build augmented matrix ---
     Aug = np.hstack((A, b.reshape(-1, 1)))
@@ -45,8 +45,8 @@ def naive_gaussian_elimination(A, b, return_stages=True):
     # --- Forward elimination ---
     for k in range(n - 1):
 
-        if Aug[k, k] = 0:
-            raise ValueError(f"Zero pivot encountered at step {k}")
+        if Aug[k, k] == 0:
+            raise ValueError(f"0 pivot encountered at step {k}")
 
         for i in range(k + 1, n):
             m = Aug[i, k] / Aug[k, k]
@@ -56,8 +56,8 @@ def naive_gaussian_elimination(A, b, return_stages=True):
             stages.append(Aug.copy())
 
     # --- Last pivot check ---
-    if Aug[n - 1, n - 1] = 0:
-        raise ValueError("Zero pivot encountered at last step")
+    if Aug[n - 1, n - 1] == 0:
+        raise ValueError("0 pivot encountered at last step")
 
     # --- Back substitution ---
     x = np.zeros(n)
