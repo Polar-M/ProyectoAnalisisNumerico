@@ -63,7 +63,7 @@ def gaussian_elimination_TP(A, b, return_stages=True):
         # Elimination
         for i in range(k + 1, n):
             m = Aug[i, k] / Aug[k, k]
-            Aug[i, k:n+1] -= m * Aug[k, k:n+1]
+            Aug[i, k:n+1] = Aug[i, k:n+1] - m * Aug[k, k:n+1]
 
         if return_stages:
             stages.append(Aug.copy())
