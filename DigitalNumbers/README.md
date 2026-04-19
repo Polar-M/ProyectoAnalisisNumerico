@@ -114,6 +114,8 @@ python tests/chapter2_linear_systems/test_gaussian_elimination_TP.py
 | Bisection          | `bisection.py`          | `f, a, b, tol, n_max`         | `root, iters, error, table, converged` |
 | False Position     | `false_position.py`     | `f, a, b, tol, n_max`         | `root, iters, error, table, converged` |
 
+All methods return a **dict** and a **pandas DataFrame table** with the iteration history.
+
 ### Chapter 2 — Linear Systems  
 
 | Method             | File                    | Inputs                        | Outputs                              |
@@ -121,8 +123,6 @@ python tests/chapter2_linear_systems/test_gaussian_elimination_TP.py
 | naive gaussian elimination         | `naive_gaussian_elimination.py` | `A, b`             | `Stages, x`          |
 | gaussian elimination (Partial pivot)| `gaussian_elimination_PP.py`          | `A, b`         | `Stages, x` |
 | gaussian elimination (Total pivot) | `gaussian_elimination_TP.py`     | `A, b`         | `Stages, x_final` |
-
-All methods return a **dict** and a **pandas DataFrame table** with the iteration history.
 
 ---
 
